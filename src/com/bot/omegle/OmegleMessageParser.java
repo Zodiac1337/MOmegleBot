@@ -10,12 +10,12 @@ import com.bot.omegle.listeners.OmegleMessageListener;
  * Time: 7:32 PM
  * To change this template use File | Settings | File Templates.
  */
-public class OmegleParser implements OmegleMessageListener {
+public class OmegleMessageParser implements OmegleMessageListener {
 
-    public OmegleParser() { }
+    public OmegleMessageParser() { }
 
     public void messageReceived(OmegleMessageEvent event) {
-        if(event.getType() == OmegleMessageEvent.Type.CONNECTED) {
+        if (event.getType() == OmegleMessageEvent.Type.CONNECTED) {
 
         }
     }

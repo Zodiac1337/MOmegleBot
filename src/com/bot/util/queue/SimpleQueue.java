@@ -52,6 +52,7 @@ public class SimpleQueue<T> {
 
     /**
      * Gets the first item in queue; returns null if the queue is empty;
+     *
      * @return t
      */
     public synchronized T get() {
@@ -63,6 +64,7 @@ public class SimpleQueue<T> {
 
     /**
      * "Peek" to see if anything is available
+     *
      * @return t
      */
     public T peek() {
@@ -73,6 +75,7 @@ public class SimpleQueue<T> {
 
     /**
      * Checks if the queue is empty
+     *
      * @return true if queue is empty; false otherwise
      */
     public boolean isEmpty() {
@@ -81,6 +84,7 @@ public class SimpleQueue<T> {
 
     /**
      * Returns the size of the queue
+     *
      * @return size of vector
      */
     public int size() {

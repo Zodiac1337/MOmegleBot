@@ -9,7 +9,7 @@ import com.bot.util.Utilities;
  * Time: 5:36 PM
  * To change this template use File | Settings | File Templates.
  */
-public abstract class LoopTask extends Utilities implements Runnable{
+public abstract class LoopTask extends Utilities implements Runnable {
 
     private boolean alive = false,
             stop = false, paused = false;

@@ -2,16 +2,7 @@ package com.bot;
 
 import com.bot.environment.Environment;
 import com.bot.irc.IRCConnection;
-import com.bot.omegle.Common;
 import com.bot.omegle.Omegle;
-
-import javax.swing.*;
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.UnsupportedEncodingException;
-import java.util.Scanner;
-import java.util.StringTokenizer;
 
 /**
  * Created by IntelliJ IDEA.

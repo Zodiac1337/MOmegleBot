@@ -95,8 +95,8 @@ public class IRCHandler extends LoopTask {
     }
 
     public synchronized void fireEvent(IRCMessageEvent event) {
-        for (IRCMessageListener listener : listeners) {
-            //System.out.println("Sending event to listener: " + listener.getClass().getName());
+        List<IRCMessageListener> _listeners = listeners;
+        for (IRCMessageListener listener : _listeners) {
             listener.messageReceived(event);
         }
     }

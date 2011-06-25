@@ -1,6 +1,5 @@
 package com.bot.irc;
 
-import com.bot.environment.Environment;
 import com.bot.irc.wrappers.Channel;
 
 import java.io.BufferedOutputStream;

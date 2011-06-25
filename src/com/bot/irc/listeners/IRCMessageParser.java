@@ -13,7 +13,7 @@ import com.bot.irc.listeners.iface.IRCMessageListener;
 public class IRCMessageParser implements IRCMessageListener {
 
     public void messageReceived(IRCMessageEvent event) {
-         System.out.println(event.getNick() + " @ " + event.getLocation() + " :: " + event.getMessage());
+        System.out.println(event.getNick() + " @ " + event.getLocation() + " :: " + event.getMessage());
     }
 
 

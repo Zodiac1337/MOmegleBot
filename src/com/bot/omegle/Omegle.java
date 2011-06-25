@@ -1,14 +1,18 @@
 package com.bot.omegle;
 
 import com.bot.Application;
+import com.bot.omegle.events.OmegleMessageEvent;
+import com.bot.omegle.listeners.OmegleMessageListener;
 import com.bot.tasks.LoopTask;
-import com.bot.util.Utilities;
 import com.bot.util.queue.SimpleQueue;
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.DataOutputStream;
+import java.io.InputStreamReader;
 import java.net.URL;
 import java.net.URLConnection;
-import java.net.URLEncoder;
+import java.util.LinkedList;
+import java.util.List;
 
 /**
  * Created by IntelliJ IDEA.
@@ -22,10 +26,13 @@ public class Omegle extends LoopTask {
     int cAttempts = 0;
     public static String ID = null;
 
+    private List<OmegleMessageListener> listeners = new LinkedList<OmegleMessageListener>();
+
     public QueueHandler queue = null;
 
-    public Omegle() {
-
+    public boolean onStart() {
+        this.addListener(new OmegleMessageParser());
+        return true;
     }
 
     public int loop() {
@@ -39,7 +46,6 @@ public class Omegle extends LoopTask {
                     String events = post(Common.OMEGLE_EVENTS, "id=" + encode(ID));
                     if (events == null)
                         return 100;
-                    //System.out.println(events);
                     processEvents(events);
                 } catch (Exception ignored) { }
             }
@@ -56,6 +62,21 @@ public class Omegle extends LoopTask {
                     System.out.println(event);
             }
         }
+    }
+
+    public synchronized void fireEvent(OmegleMessageEvent event) {
+        List<OmegleMessageListener> _listeners = listeners;
+        for (OmegleMessageListener listener : _listeners)
+            listener.messageReceived(event);
+    }
+
+    public synchronized void addListener(OmegleMessageListener listener) {
+        listeners.add(listener);
+    }
+
+    public synchronized void removeListener(OmegleMessageListener listener) {
+        if (listeners.contains(listener))
+            listeners.remove(listener);
     }
 
     private static String getID() {
