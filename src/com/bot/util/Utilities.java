@@ -28,4 +28,12 @@ public class Utilities {
     public static String encode(String toEncode) throws UnsupportedEncodingException {
         return URLEncoder.encode(toEncode, "UTF-8");
     }
+
+    public static boolean containsOneOf(String string, String array[]) {
+        for (String a : array) {
+            if (string.toLowerCase().contains(a.toLowerCase()))
+                return true;
+        }
+        return false;
+    }
 }
