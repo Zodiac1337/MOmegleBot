@@ -20,6 +20,7 @@ public class IRCMessageEvent extends EventObject {
         this.host = host;
         this.location = location;
         this.message = message;
+        this.type = type;
     }
 
     public Type getType() {
