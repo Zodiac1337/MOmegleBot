@@ -31,4 +31,8 @@ public class Channel {
         Environment.CHANNELS.remove(this);
         part();
     }
+
+    public String getUserRank(String user) {
+        throw new UnsupportedOperationException();
+    }
 }
