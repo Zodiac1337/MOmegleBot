@@ -43,6 +43,10 @@ public class IRCMessageEvent extends EventObject {
         return message;
     }
 
+    public boolean fromChannel() {
+        return location.startsWith("#");
+    }
+
     public enum Type {
         PRIVMSG, NOTICE, JOIN, INVITE, KICK, BAN, MODE, ACTION, PING
     }

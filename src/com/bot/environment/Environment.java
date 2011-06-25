@@ -2,6 +2,8 @@ package com.bot.environment;
 
 import com.bot.irc.wrappers.Channel;
 
+import java.util.ArrayList;
+
 /**
  * Created by IntelliJ IDEA.
  * User: TeJanca
@@ -15,4 +17,7 @@ public class Environment {
             NICK = "MOmegle", PASSWORD = "omegleirc";
 
     public static Channel CHANNEL = new Channel("#Janca", null);
+
+    //TODO add support for multichannel
+    public static ArrayList<Channel> CHANNELS = new ArrayList<Channel>();
 }

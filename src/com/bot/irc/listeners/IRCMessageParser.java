@@ -24,5 +24,7 @@ public class IRCMessageParser implements IRCMessageListener {
             IRCOutput.sendRaw("PRIVMSG " + event.getLocation() + " :" + event.getMessage().substring(5).trim());
     }
 
+    private void processChannelCommand(IRCMessageEvent event) {
 
+    }
 }

@@ -1,5 +1,6 @@
 package com.bot.irc.wrappers;
 
+import com.bot.environment.Environment;
 import com.bot.irc.IRCOutput;
 
 /**
@@ -20,5 +21,14 @@ public class Channel {
 
     public void join() {
         IRCOutput.sendRaw("JOIN #" + channelName);
+    }
+
+    public void part() {
+        IRCOutput.sendRaw("PART #" + channelName);
+    }
+
+    public void destruct() {
+        Environment.CHANNELS.remove(this);
+        part();
     }
 }
